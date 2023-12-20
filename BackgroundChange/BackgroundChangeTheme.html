@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Featured Work</title>
+    <!-- Add your CSS stylesheets or link to external stylesheets here -->
+
+    <style>
+      body {
+        font-family: roboto-slab-regular;
+      }
+      .logo-block,
+      .container-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+
+      .container-feature {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .logo-block-img {
+        position: relative;
+        z-index: 2;
+      }
+
+      img {
+        border-style: none;
+        height: auto;
+        max-width: 100%;
+      }
+
+      .darkmode .logo-block-img {
+        background: #cbcbcb;
+      }
+
+      .logo-block:hover .logo-block-link {
+        left: 16px;
+        opacity: 1;
+      }
+      .logo-block-link {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        bottom: 8px;
+        color: #000;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        left: -100px;
+        opacity: 0;
+        position: absolute;
+        -webkit-transition: 0.3s ease 0s;
+        transition: 0.3s ease 0s;
+        z-index: 3;
+        text-decoration: none;
+      }
+
+      .logo-block-link img {
+        margin-left: 15px;
+        -webkit-transition: 0.3s ease 0s;
+        transition: 0.3s ease 0s;
+      }
+
+      .logo-block-link:hover {
+        color: #000;
+      }
+
+      .logo-block-link:hover img {
+        margin-left: 25px;
+      }
+
+      /* .logo-block-link img {
+        width: 15px !important;
+      } */
+
+      .logo-block:hover .logo-block-link {
+        bottom: 2px;
+        font-size: 18px;
+      }
+
+      .logo-block {
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: hsla(0, 0%, 100%, 0.3);
+        border: 2px solid #fff;
+        border-right: none;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 17vw;
+        flex: 0 0 17vw;
+        height: 250px;
+        overflow: hidden;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 50px;
+        position: relative;
+        width: 327px;
+      }
+      /*typography-css-Start*/
+      *,
+      :after,
+      :before {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      .logo-block:before {
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        -webkit-transition: 0.3s ease 0s;
+        transition: 0.3s ease 0s;
+        z-index: 1;
+      }
+
+      @media (min-width: 768px) {
+        .logo-block {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 17vw;
+          flex: 0 0 17vw;
+          height: 160px;
+        }
+      }
+      /* .logo0:hover,
+      .logo1:hover,
+     
+      .logo3:hover,
+      .logo4:hover {
+        background-color: rgb(
+          250,
+          248,
+          248
+        ); /* Change background color on hover */
+
+    
+      .logo0::before,
+      .logo1::before,
+      .logo2::before,
+      .logo3::before,
+      .logo4::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        z-index: -1;
+        transition: top 0.3s ease;
+      }
+      .logo0:hover::before,
+      .logo1:hover::before,
+      .logo2:hover::before,
+      .logo3:hover::before,
+      .logo4:hover::before {
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const body = document.querySelector("body");
+        let imageUrl =
+          "https://static.technians.com/wp-content/uploads/2023/02/ananda-1.webp?x67759"; // Default image URL
+
+        function displayImage(newImageUrl) {
+          imageUrl = newImageUrl;
+          body.style.backgroundImage = `url('${imageUrl}')`;
+          body.style.backgroundRepeat = "no-repeat";
+          body.style.backgroundAttachment = "fixed";
+          body.style.backgroundPosition = "center";
+          body.style.backgroundSize = "contain";
+        }
+
+        function keepImageOnMouseLeave() {
+          if (imageUrl !== null) {
+            body.style.backgroundImage = `url('${imageUrl}')`;
+          }
+        }
+
+        displayImage(imageUrl);
+
+        const logo0 = document.querySelector(".logo0");
+        logo0.addEventListener("mouseenter", function () {
+          displayImage(
+            "https://static.technians.com/wp-content/uploads/2023/02/ananda-1.webp?x67759"
+          );
+        });
+        logo0.addEventListener("mouseleave", keepImageOnMouseLeave);
+
+        const logo1 = document.querySelector(".logo1");
+        logo1.addEventListener("mouseenter", function () {
+          displayImage(
+            "https://static.technians.com/wp-content/uploads/2023/02/max-hospital-3.webp?x67759"
+          );
+        });
+        logo1.addEventListener("mouseleave", keepImageOnMouseLeave);
+
+        const logo2 = document.querySelector(".logo2");
+        logo2.addEventListener("mouseenter", function () {
+          displayImage(
+            "https://static.technians.com/wp-content/uploads/2023/01/housing-2.webp?x67759"
+          );
+        });
+        logo2.addEventListener("mouseleave", keepImageOnMouseLeave);
+
+        const logo3 = document.querySelector(".logo3");
+        logo3.addEventListener("mouseenter", function () {
+          displayImage(
+            "https://static.technians.com/wp-content/uploads/2023/01/oyo-1-1.webp?x67759"
+          );
+        });
+        logo3.addEventListener("mouseleave", keepImageOnMouseLeave);
+
+        const logo4 = document.querySelector(".logo4");
+        logo4.addEventListener("mouseenter", function () {
+          displayImage(
+            "https://static.technians.com/wp-content/uploads/2022/12/marvel-2.webp?x67759"
+          );
+        });
+        logo4.addEventListener("mouseleave", keepImageOnMouseLeave);
+      });
+    </script>
+    <div>
+      <div
+        class="container-wrapper container-feature"
+        style="
+          transform: translate3d(0px, 0px, 0px);
+          /* background: antiquewhite; */
+          position: absolute;
+          top: 60%;
+          right: 4%;
+        "
+      >
+        <!-- Logo 0 -->
+        <div class="logo0 logo-block">
+          <img
+            src="https://static.technians.com/wp-content/uploads/2022/01/1-1.webp?x67759"
+            alt=""
+            class="logo-block-img"
+          />
+          <a href="https://technians.com/work/ananda/" class="logo-block-link">
+            View Details
+            <img
+              src="https://stag.technians.com/wp-content/uploads/2021/12/output-onlinepngtools.png"
+              alt=""
+            />
+          </a>
+        </div>
+
+        <!-- Logo 1 -->
+        <div class="logo1 logo-block">
+          <img
+            src="https://static.technians.com/wp-content/uploads/2022/01/2-1.webp?x67759"
+            alt=""
+            class="logo-block-img"
+          />
+          <a
+            href="https://technians.com/work/max-healthcare/"
+            class="logo-block-link"
+          >
+            View Details
+            <img
+              src="https://stag.technians.com/wp-content/uploads/2021/12/output-onlinepngtools.png"
+              alt=""
+            />
+          </a>
+        </div>
+
+        <!-- Logo 2 -->
+        <div class="logo2 logo-block">
+          <img
+            src="https://static.technians.com/wp-content/uploads/2022/01/6.webp?x67759"
+            alt=""
+            class="logo-block-img"
+          />
+          <a
+            href="https://technians.com/work/housing-com/"
+            class="logo-block-link"
+          >
+            View Details
+            <img
+              src="https://stag.technians.com/wp-content/uploads/2021/12/output-onlinepngtools.png"
+              alt=""
+            />
+          </a>
+        </div>
+
+        <!-- Logo 3 -->
+        <div class="logo3 logo-block">
+          <img
+            src="https://static.technians.com/wp-content/uploads/2022/01/3.webp?x67759"
+            alt=""
+            class="logo-block-img"
+          />
+          <a
+            href="https://technians.com/work/oyo-rooms/"
+            class="logo-block-link"
+          >
+            View Details
+            <img
+              src="https://stag.technians.com/wp-content/uploads/2021/12/output-onlinepngtools.png"
+              alt=""
+            />
+          </a>
+        </div>
+
+        <!-- Logo 4 -->
+        <div class="logo4 logo-block">
+          <img
+            src="https://static.technians.com/wp-content/uploads/2022/01/15.webp?x67759"
+            alt=""
+            class="logo-block-img"
+          />
+          <a
+            href="https://technians.com/work/marvel-tea/"
+            class="logo-block-link"
+          >
+            View Details
+            <img
+              src="https://stag.technians.com/wp-content/uploads/2021/12/output-onlinepngtools.png"
+              alt=""
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

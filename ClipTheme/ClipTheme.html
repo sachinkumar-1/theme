@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .clips {
+        clip-path: polygon(
+          0 0,
+          15% 18%,
+          50% 0,
+          79% 15%,
+          100% 0,
+          100% 100%,
+          0 100%
+        );
+        transition: all 15.5s;
+      }
+
+      .clips img {
+        position: relative;
+        z-index: 9;
+        cursor: grab;
+        height: 350px;
+        opacity: 0.5;
+        transition: all 5.5s;
+        width: 100%;
+      }
+
+      .clips img:hover {
+        opacity: 1;
+        z-index: 99999999;
+        transform: scale(1.5);
+      }
+
+      .clips img:focus-within {
+        cursor: grabbing;
+      }
+
+      .clips .swiper-slide {
+        background-color: #000;
+        transition: all 5.5s;
+      }
+
+      .clips .swiper-slide:hover {
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 99999999;
+      }
+
+      .clips,
+      .swiper-container {
+        overflow-y: hidden;
+      }
+
+      .swiper-horizontal {
+        touch-action: pan-y;
+      }
+      .swiper,
+      swiper-container {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        /* overflow: hidden; */
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+        display: block;
+      }
+      .swiper-free-mode > .swiper-wrapper {
+        transition-timing-function: ease-out;
+        margin: 0 auto;
+      }
+      .swiper-wrapper {
+        box-sizing: border-box !important;
+      }
+      .swiper-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        transition-property: transform;
+        transition-timing-function: var(
+          --swiper-wrapper-transition-timing-function,
+          initial
+        );
+        box-sizing: content-box;
+      }
+      .swiper-slide,
+      swiper-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+        display: block;
+      }
+      img {
+        border-style: none;
+        height: auto;
+        max-width: 100%;
+      }
+      img,
+      svg {
+        vertical-align: middle;
+      }
+
+      .two-bg-title-wrapper.highlighter-four {
+        margin: 0 0 20px 0;
+        min-height: 150px;
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-four .two-bg-title {
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-four .two-bg-title h1 {
+        font-size: 24px;
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .two-bg-title-wrapper.highlighter-four .sub-title {
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-four .sub-title h3 {
+        font-size: 18px;
+        text-align: left;
+        line-height: 1.5;
+      }
+
+      .two-bg-title-wrapper.highlighter-four h3 strong {
+        display: inline-block;
+        padding-bottom: 30px;
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-four h3 strong::after {
+        background-image: url(https://technians.com/wp-content/themes/technians-child/asset/images/highlighter1.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        bottom: 0;
+        content: "";
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+      }
+
+      .two-bg-title-wrapper.highlighter-four .lead-text {
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-six {
+        margin: 0 0 20px 0;
+        min-height: 150px;
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-six .two-bg-title {
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-six .two-bg-title h1 {
+        font-size: 24px;
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .two-bg-title-wrapper.highlighter-six .sub-title {
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-six .sub-title h3 {
+        font-size: 18px;
+        text-align: left;
+        line-height: 1.5;
+      }
+
+      .two-bg-title-wrapper.highlighter-six .sub-title h3 strong {
+        display: inline-block;
+        padding-bottom: 30px;
+        position: relative;
+      }
+
+      .two-bg-title-wrapper.highlighter-six .sub-title h3 strong::after {
+        background-image: url(https://technians.com/wp-content/themes/technians-child/asset/images/highlighter2.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        bottom: 0;
+        content: "";
+        height: auto;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+      }
+
+      .two-bg-title-wrapper,
+      .two-part-title-wrapper,
+      .simple-title-wrapper,
+      .btm-60 {
+        margin-bottom: 30px;
+      }
+      .top-title {
+        margin-bottom: 1rem !important;
+      }
+
+      .text-center {
+        text-align: center !important;
+      }
+      p:last-child {
+        margin-bottom: 0px !important;
+      }
+      .top-title p {
+        text-transform: uppercase;
+        font-size: 14px;
+        display: inline-block;
+        line-height: 1.2;
+        text-align: left;
+        position: relative;
+      }
+      .center-side p:after {
+        right: 0;
+        margin: auto;
+      }
+      .top-title p:after {
+        content: "";
+        height: 2px;
+        position: absolute;
+        bottom: -50%;
+        left: 0;
+        z-index: 9;
+        width: 45%;
+        background: #1695b4;
+      }
+      .font-superior,
+      .sub_title {
+        font-family: "Superior" !important;
+      }
+
+      .text-center {
+        text-align: center !important;
+      }
+      h6,
+      .headingsix p,
+      h4.followtitle,
+      .c-award__title {
+        font-size: 30px;
+        margin: 0px;
+      }
+      .headingthree p,
+      .headingfive p,
+      .headingsix p {
+        font-family: roboto-slab-light;
+      }
+      h3,
+      .headingthree p {
+        font-size: 36px;
+        margin: 0px;
+      }
+      .text-center {
+        text-align: center !important;
+      }
+      /* .side-border {
+    position: relative;
+} */
+
+      /* .side-border:after {
+        content: "";
+        height: 2px;
+        position: absolute;
+        bottom: 20px;
+        right: 0;
+        z-index: 9;
+        width: 100%;
+        background: #000000;
+    } */
+
+      @media (min-width: 1300px) {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
+          margin: 0 auto;
+          max-width: 1200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="two-bg-title-wrapper">
+        <div class="top-title text-center center-side">
+          <p>EVERYTHING IN</p>
+        </div>
+        <div class="two-bg-title">
+          <h6 class="font-superior text-center">Our Culture is</h6>
+        </div>
+        <div class="headingthree">
+          <p class="side-border text-center title-border-none">
+            <span class="p-0"> Focused on Your Success </span>
+          </p>
+        </div>
+
+        <div class="lead-text">
+          <p
+            itemprop="description"
+            class="text-center"
+            style="font-size: larger"
+          >
+            We are young at heart, dynamic, proactive, and professional. And we
+            work together so you may win!
+          </p>
+        </div>
+      </div>
+    </div>
+    <section
+      class="culture-swiper-wrapper top-50"
+      id="our-culture-slider"
+      style="margin-top: 121px"
+    >
+      <div class="clips">
+        <div
+          class="swiper-container swiper swiper-initialized swiper-horizontal swiper-free-mode"
+          id="culture-swiper"
+        >
+          <div
+            itemscope=""
+            itemtype="https://schema.org/ImageGallery"
+            class="swiper-wrapper"
+            style="display: flex; width: fit-content"
+            id="swiper-wrapper"
+          >
+            <div
+              class="swiper-slide swiper-slide-active"
+              style="width: 504.4px"
+            >
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/IMG20220923132130-3scaled-2-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide swiper-slide-next" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-11-10-at-20.51.55-1.jpeg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/IMG-20191025-WA0006.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/Image_20231123_163023_219-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/Image_20231123_163023_275-1-scaled-1.jpeg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/DSC00870-scaled-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/Image_20231123_163022_927-1-scaled-1.jpeg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/DSC_8355-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/DSC_8790-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/355A3466-scaled-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-11-10-at-20.58.30-1.jpeg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/71753291_2341612989225870_7875239698799525888_n.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/355A3678-1-scaled-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/IMG20230914181112-2-scaled-4-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/IMG20220810162705-3-scaled-3-1.jpg?x67759"
+              />
+            </div>
+
+            <div class="swiper-slide" style="width: 504.4px">
+              <img
+                itemprop="image"
+                alt="technians_culture"
+                src="https://static.technians.com/wp-content/uploads/2023/12/IMG20230914180927-1-2-scaled1-1.jpg?x67759"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
